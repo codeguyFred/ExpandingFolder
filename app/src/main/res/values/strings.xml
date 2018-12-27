@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FolderSample</string>
+
+    <string name="home">&#xe628;</string>
+    <string name="search">&#xe663;</string>
+    <string name="folder">&#xe6ad;</string>
+    <string name="url">&#xe63e;</string>
+    <string name="title_activity_sample_video">SampleVideoActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+</resources>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#30338E"
+            android:orientation="vertical"
+            tools:context=".PopularizeActivity">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="29dp"
+                android:background="@drawable/rect_ff_cor_2_5"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/normaltext"
+                    android:text="我的邀请码" />
+
+
+                <TextView
+                    android:id="@+id/tv_invite_code"
+                    style="@style/normaltext"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    tools:text="IUA90X" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="29dp"
+                android:background="@drawable/rect_ff_cor_2_5">
+
+                <TextView
+                    android:id="@+id/choose"
+                    style="@style/normaltext"
+                    android:layout_marginTop="14.5dp"
+                    android:text="持仓选择" />
+
+
+                <com.xw.repo.BubbleSeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/choose"
+                    android:layout_marginLeft="22.5dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="22.5dp"
+                    app:bsb_auto_adjust_section_mark="true"
+                    app:bsb_second_track_color="@android:color/white"
+                    app:bsb_section_count="5"
+                    app:bsb_section_text_position="below_section_mark"
+                    app:bsb_show_section_mark="true"
+                    app:bsb_show_section_text="true"
+                    app:bsb_show_thumb_text="true"
+                    app:bsb_thumb_text_size="18sp"
+                    app:bsb_touch_to_seek="true" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/rect_ff_cor_4"
+                    android:textColor="#FF30338E"
+                    android:textSize="17sp"
+                    tools:text="确定" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_own"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="29dp"
+                android:background="@drawable/rect_ff_cor_2_5"
+                android:minHeight="103.5dp"
+                tools:layout_height="179dp">
+
+                <TextView
+                    android:id="@+id/own"
+                    style="@style/normaltext"
+                    android:layout_marginTop="14.5dp"
+                    android:text="我的持仓" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/own"
+
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:lineHeight="18.5sp"
+                            android:text="时间"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13sp" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="18.5sp"
+                            android:text="原数量"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13sp" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="18.5sp"
+                            android:text="剩余天数"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13sp" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="22dp"
+                            android:lineHeight="18.5sp"
+                            android:text="剩余数量"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="19dp"
+                            android:lineHeight="20sp"
+                            android:text="2018.07.18"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13sp" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="20sp"
+                            android:text="1200"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="14sp" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineHeight="20sp"
+                            android:text="33"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="14sp" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="22dp"
+                            android:lineHeight="20sp"
+                            android:text="1100"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15.5dp"
+                    android:background="@drawable/rect_ff_cor_2_5_2"
+                    android:padding="4dp"
+                    android:text="查看更多记录 > "
+                    android:textColor="@android:color/white" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
