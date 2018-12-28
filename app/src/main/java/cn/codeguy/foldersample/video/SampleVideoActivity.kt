@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 import android.support.v7.widget.GridLayoutManager
 import android.transition.TransitionInflater
 import android.view.*
@@ -36,10 +37,9 @@ class SampleVideoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         var slide_bottom = TransitionInflater.from(this).inflateTransition(android.R.transition.slide_right)
-        getWindow().enterTransition=slide_bottom
+        getWindow().enterTransition = slide_bottom
 
 
         setContentView(R.layout.activity_sample_video)
@@ -51,14 +51,18 @@ class SampleVideoActivity : AppCompatActivity() {
 
         // Set up the ViewPager with the sections adapter.
         container.adapter = mSectionsPagerAdapter
+        container.setPageTransformer(false, ViewPager.PageTransformer { view, fl ->
 
-        container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
-        tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
+        }, 0)
+        container.setCurrentItem(1, false)
+//        container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
+//        tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
 
     }
 
@@ -78,7 +82,14 @@ class SampleVideoActivity : AppCompatActivity() {
         if (id == R.id.action_settings) {
             return true
         }
-
+        when (id) {
+            android.R.id.home -> {
+                select(1)
+                return true
+            }
+            else -> {
+            }
+        }
         return super.onOptionsItemSelected(item)
     }
 
@@ -92,6 +103,11 @@ class SampleVideoActivity : AppCompatActivity() {
         override fun getItem(position: Int): Fragment {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
+            if (position == 0) {
+                return PlaceholderLeftFragment.newInstance(position + 1)
+            } else if (position == 2) {
+                return PlaceholderRightFragment.newInstance(position + 1)
+            }
             return PlaceholderFragment.newInstance(position + 1)
         }
 
@@ -101,48 +117,15 @@ class SampleVideoActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    class PlaceholderFragment : Fragment() {
-
-        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                                  savedInstanceState: Bundle?): View? {
-            val rootView = inflater.inflate(R.layout.fragment_sample_video, container, false)
-            rootView.rv_video.layoutManager=GridLayoutManager(context,3)
-            rootView.rv_video.adapter=VideoItemAdapter(DummyContent.ITEMS,
-                    object : VideoItemAdapter.OnListFragmentInteractionListener {
-                        override fun onListFragmentInteraction(item: FolderBean?) {
-
-                        }
-                    })
-            return rootView
-        }
-
-        companion object {
-            /**
-             * The fragment argument representing the section number for this
-             * fragment.
-             */
-            private val ARG_SECTION_NUMBER = "section_number"
-
-            /**
-             * Returns a new instance of this fragment for the given section
-             * number.
-             */
-            fun newInstance(sectionNumber: Int): PlaceholderFragment {
-                val fragment = PlaceholderFragment()
-                val args = Bundle()
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber)
-                fragment.arguments = args
-                return fragment
-            }
-        }
-    }
 
     override fun onBackPressed() {
         super.onBackPressed()
-        overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
-
+        overridePendingTransition(R.anim.right_to_current, R.anim.current_to_left)
     }
+
+    fun select(i: Int) {
+        container.setCurrentItem(i,true)
+    }
+
+
 }

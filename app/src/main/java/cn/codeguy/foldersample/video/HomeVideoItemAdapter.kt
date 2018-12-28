@@ -19,16 +19,16 @@ import kotlinx.android.synthetic.main.rv_item_video.view.*
  * specified [OnListFragmentInteractionListener].
  * TODO: Replace the implementation with code for your data type.
  */
-class VideoItemAdapter(
+class HomeVideoItemAdapter(
         private val mValues: List<FolderBean>,
         private val mListener: OnListFragmentInteractionListener?)
-    : RecyclerView.Adapter<VideoItemAdapter.ViewHolder>() {
+    : RecyclerView.Adapter<HomeVideoItemAdapter.ViewHolder>() {
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.rv_item_video, parent, false)
+                .inflate(R.layout.rv_item_home_video, parent, false)
         return ViewHolder(view)
     }
 

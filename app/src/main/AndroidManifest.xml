@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopularizeActivity"></activity>
+        <activity android:name=".video.VideoDetailActivity"></activity>
+        <activity android:name=".video.UserDetailActivity" />
+        <activity android:name=".PopularizeActivity" />
         <!--
             <activity android:name=".SplashActivity">
             <intent-filter>
@@ -19,11 +21,11 @@
             </intent-filter>
         </activity>
         -->
-        <activity
-            android:name=".video.SampleVideoActivity"
-            android:label="@string/title_activity_sample_video"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".MainActivity2">
+        <!-- <activity -->
+        <!-- android:name=".video.SampleVideoActivity" -->
+        <!-- android:label="@string/title_activity_sample_video" -->
+        <!-- android:theme="@style/AppTheme" /> -->
+        <activity android:name=".video.SampleVideoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
